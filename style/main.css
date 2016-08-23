@@ -1,13 +1,112 @@
-.overlay {
+html {
+    background: #fafafa;
     height: 100%;
-    width: 0;
+}
+
+body {
+    background: #fefefe;
+    height: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    padding-left: 5%;
+    padding-right: 5%;
+
+    box-shadow: 0px 10px 5px 6px #d1d1d1;
+    border-color: #dfdfdf;
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+
+
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2 {
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+}
+
+h1, h2, p {
+    color: #515151;
+}
+
+#header {
+    display: flex;
+    flex-direction: row;
+
+    border-color: #d1d1d1;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+}
+
+#header h1 {
+    margin-left: 5%;
+
+    border-color: #d1d1d1;
+    border-style: solid;
+    border-width: 0px 1px 0px 0px;
+
+    margin-right: 2.5%;
+    padding-right: 2.5%;
+
+    flex-shrink: 0;
+    flex-basis: 6em;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight:200;
+    font-size: 50px;
+}
+
+#header p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*flex-grow: 1;*/
+}
+
+#header a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+#header a, a:link, a:visited, a:active {
+    color: #515151;
+    text-decoration: none;
+}
+
+#header a:hover {
+    color: #d1d1d1;
+}
+
+.group-section h1 {
+    width: 25%;
+
+    border-color: #d1d1d1;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+}
+
+.group-section div {
+    margin-left: 2%;
+}
+
+.project:hover .overlay {
+    height: 100%;
+}
+
+.overlay {
+    /*
+    height: 0;
+    width: 100%;
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
     overflow-x: hidden;
+    */
+    height: 0%;
     transition: 0.5s;
 }
 
-.body {
-}

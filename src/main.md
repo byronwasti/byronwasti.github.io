@@ -5,16 +5,16 @@
 [Github](github.com)
 [About](test)
 
-# About
+# About {.group-section}
 
-# Projects
-
-## Olin Electric Motorsports {.project onclick="runscript(this)"}
-### Olin Electric Motorsports {.overlay}
-This is going to be overlayed
-
+# Experience {.group-section}
 ## Onshape Feature Script Intern {.project}
 
-
 ## Audience Multisensory Algorithms Intern {.project}
+This is going to be overlayed
+
+# Projects {.group-section}
+
+## Olin Electric Motorsports {.project}
+This is going to be overlayed
 
