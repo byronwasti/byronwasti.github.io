@@ -79,6 +79,46 @@ h1, h2, p {
     color: #d1d1d1;
 }
 
+#about div {
+    margin-bottom: 0px;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#about .level2 {
+    margin-bottom: 0rem;
+}
+
+#about > div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+#about > div > div {
+    width: 30%;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#about > div > div > h2 {
+    text-align: center;
+    padding-bottom: .5rem;
+    margin: 0px;
+    border-color: #d1d1d1;
+    border-style: solid;
+    border-width: 0px 0px 1px 0px;
+}
+
+#about > div > div > p {
+    /*text-align: justify;*/
+    text-align: center;
+}
+
 .group-section h1 {
     width: 25%;
 
@@ -91,30 +131,6 @@ h1, h2, p {
     margin-left: 2%;
     margin-bottom: 3rem;
 }
-
-#about img {
-    border-radius: 50%;
-    width: 15rem;
-}
-
-#about div {
-    margin-bottom: 0px;
-}
-
-#about .level2 {
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 0rem;
-}
-
-#about ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    list-style: none;
-}
-
 
 .project h2 {
     margin-bottom: .5rem;

@@ -7,14 +7,24 @@
 
 # About {.group-section}
 
-## {}
-![](images/Face.png "Myself")
+<div>
 
-- I am cool
+<div>
+## Passion
+Passion is something that I have. I am passionate about doing things right, and doing things well. I am passionate about Open Source technology and the Unix work flow. I am passionate.
+</div>
 
-- I am good looking
- 
-- I am swagalishish
+<div>
+## Work Philosophy
+I prefer to work smart rather than to work hard. I tend to script anything that I need to do more than once. I work really hard learning and figuring out the easiest ways to do something. 
+</div>
+
+<div>
+## Do-Learn
+Olin College of Engineering is built on the idea that the best way to learn engineering is to just do it.
+</div>
+
+</div>
 
 # Experience {.group-section}
 ## Onshape Feature Script Intern {.project}
