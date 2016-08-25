@@ -92,6 +92,30 @@ h1, h2, p {
     margin-bottom: 3rem;
 }
 
+#about img {
+    border-radius: 50%;
+    width: 15rem;
+}
+
+#about div {
+    margin-bottom: 0px;
+}
+
+#about .level2 {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0rem;
+}
+
+#about ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    list-style: none;
+}
+
+
 .project h2 {
     margin-bottom: .5rem;
 }

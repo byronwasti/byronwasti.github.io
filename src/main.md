@@ -7,6 +7,15 @@
 
 # About {.group-section}
 
+## {}
+![](images/Face.png "Myself")
+
+- I am cool
+
+- I am good looking
+ 
+- I am swagalishish
+
 # Experience {.group-section}
 ## Onshape Feature Script Intern {.project}
 
