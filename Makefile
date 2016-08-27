@@ -8,5 +8,5 @@ SCRIPTS=scripts/overlay.js
 CFLAGS=--template=html.template --section-divs --variable css=$(STYLE) --variable css=$(FONTS) --variable css=$(FONTS2) --variable css=$(FONTS3) --variable js=$(SCRIPTS) 
 SRC=src/main.md
 
-index:
-	$(PD) -s $(SRC) -o index.html $(CFLAGS)
+index.html: $(SRC)
+	$(PD) -s $(SRC) -o $@ $(CFLAGS)
