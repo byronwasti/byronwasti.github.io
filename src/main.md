@@ -1,7 +1,7 @@
 % Byron Wasti
 
 # Byron Wasti {#header}
-[Resume](Resume/resume.pdf)
+[Resume](Resume/Resume.pdf)
 [Github](https://github.com/byronwasti)
 [Linkedin](https://www.linkedin.com/in/byron-wasti-595b23a4)
 
@@ -29,13 +29,13 @@ Olin College of Engineering is built on the idea that the best way to learn engi
 # Experience {.group-section}
 ## Onshape Feature Script Intern {.project}
 
+## Olin Electric Motorsports {.project}
+This is going to be overlayed
+
 ## Audience Multisensory Algorithms Intern {.project}
 This is going to be overlayed
 
 # Projects {.group-section}
-
-## Olin Electric Motorsports {.project}
-This is going to be overlayed
 
 ## REVO CAN {.project}
 REVO is the Olin College of Engineering's Electric Car Racing team. I am working on, and leading, the CAN programming subsection of the team. Our goal is to have all componenets of our fSAE car able to talk to each other.
@@ -46,6 +46,8 @@ REVO is the Olin College of Engineering's Electric Car Racing team. I am working
 Tutorials I wrote in order to help teach new members of the REVO Electric Vehicle Racing team how to work with ATmegas, and how to program them in C. Originally meant to be a very short introduction, the tutorials were very popular and I have continued to add more of them as I learn new things myself.
 
 [Github](https://github.com/OlinREVO/CAN_101)
+
+## EMT User Oriented Collaborative Design {.project}
 
 ## Funnl {.project}
 A news aggregator website with a twist. Given an input topic, it will scrape different articles and find the most relevant and interesting information and display it. The goal is to reduce the amount of repetitive information found in different articles about the same topic, and to bring out the interesting facts or opinions that different sources bring to the table. Developed over 24 hours at Hack MIT.
