@@ -11,29 +11,30 @@
 
 <div>
 ## Passion
-Passion is something that I have. I am passionate about doing things right, and doing things well. I am passionate about Open Source technology and the Unix work flow. I am passionate.
+There are many passions I have in life, from playing Ultimate Frisbee to embedded system development on a Formula Electric Racecar. However, above all else, I am passionate about doing things efficiently and cleanly. 
 </div>
 
 <div>
 ## Work Philosophy
-I prefer to work smart rather than to work hard. I tend to script anything that I need to do more than once. I work really hard learning and figuring out the easiest ways to do something. 
+My philosophy is very simple: I work smart rather than hard. I tend to spend longer thinking about *how* to implement a solution than actually implementing it so that the end result is as clean as possible. 
 </div>
 
 <div>
 ## Do-Learn
-Olin College of Engineering is built on the idea that the best way to learn engineering is to just do it.
+Olin College of Engineering is built on the idea that the best way to learn engineering is to just do it. I agree 100% with this idea and I am never afraid of a challenge. I am always willing to learn, and am constantly challenging myself.
 </div>
 
 </div>
 
 # Experience {.group-section}
 ## Onshape Feature Script Intern {.project}
-
-## Olin Electric Motorsports {.project}
-This is going to be overlayed
+Responsibilities included implementing various built-in functions for the Feature Script language, and designing and implementing a better autocomplete algorithm. Challenges included optimizations, geometric and text-based algorithm development, as well as working with a large code-base.
 
 ## Audience Multisensory Algorithms Intern {.project}
-This is going to be overlayed
+Responsibilities included building Machine Learning classifiers, developing back end for ML pipeline, developing tools for automating data post-processing and interfacing wirelessly with Android devices using TCP sockets.
+
+## Olin Electric Motorsports {.project}
+Member of a 25 person electric vehicle club, designing Formula Electric racecars for the Lincoln, Nebraska SAE competition. A member of the leadership team with responsibilities including teaching new members about electrical and embedded software systems, as well as being the chief software architect for the car.
 
 # Projects {.group-section}
 
