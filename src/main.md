@@ -38,15 +38,15 @@ Member of a 25 person electric vehicle club, designing Formula Electric racecars
 
 # Projects {.group-section}
 
-## REVO CAN {.project}
-REVO is the Olin College of Engineering's Electric Car Racing team. I am working on, and leading, the CAN programming subsection of the team. Our goal is to have all componenets of our fSAE car able to talk to each other.
+## Olin Electric Motorsports Car Software {.project}
+Olin Electric Motorsports is the Olin College of Engineering's Electric Formula Car Racing team. I am working on, and leading, the programming subsection of the team. Our goal is to have all components of our fSAE car able to talk to each other.
 
-[Github](https://github.com/OlinREVO/CAN_2015-2016)
+[Github (First Car)](https://github.com/olin-electric-motorsports/MK_I-Code)
 
-## REVO CAN Tutorials {.project}
-Tutorials I wrote in order to help teach new members of the REVO Electric Vehicle Racing team how to work with ATmegas, and how to program them in C. Originally meant to be a very short introduction, the tutorials were very popular and I have continued to add more of them as I learn new things myself.
+## Olin Electric Motorsports Embedded System Tutorials {.project}
+Tutorials I wrote in order to help teach new members of the Olin Electric Motorsports Racing team how to work with ATmegas, and how to program them in C. Originally meant to be a very short introduction, the tutorials were very popular and I have continued to add more of them as I learn new things myself.
 
-[Github](https://github.com/OlinREVO/CAN_101)
+[Github](https://github.com/olin-electric-motorsports/programmingTutorials)
 
 ## EMT User Oriented Collaborative Design {.project}
 
