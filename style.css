@@ -34,7 +34,9 @@ h1 {
 }
 
 a {
+    font-family: "Roboto";
     font-size: 1.3em;
+    font-weight: 400;
 }
 
 a, a:link, a:visited, a:active {
