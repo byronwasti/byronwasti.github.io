@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chip-8 Emulator</title>
+    <link rel="stylesheet" href="http://byronwasti.com//css/main.css">
+</head>
+
+<body>
+    <div class="nav">
+        <ul>
+            <li><a href="http://byronwasti.com/">Home</a></li>
+            <li><a href="http://byronwasti.com//project">Projects</a></li>
+            <li><a href="http://byronwasti.com//post">Posts</a></li>
+            <li><a href="https://github.com/byronwasti">Github</a></li>
+            <li><a href="http://byronwasti.com//Resume.pdf">Resume</a></li>
+        </ul>
+    </div>
+
+
+<body>
+    <h1>Chip-8 Emulator</h1>
+    
+
+<p><em>tldr; Code is here: <a href="https://github.com/byronwasti/chip-8-emulator">https://github.com/byronwasti/chip-8-emulator</a></em></p>
+
+<p>The Chip-8 is a fairly small instruction set originally designed for playing video games on old microcontrollers. Because of the small instruction set size it is a very approachable computer to write an emulator for. Since I was learning Rust at the time, it seemed like the perfect opportunity to further learn Rust and to learn how to write an emulator.</p>
+
+<p>One of the major goals of this project was to write the core independent of the peripherals. This means that someone could take the core emulator and write their own display or keyboard input system. By default it comes with a keyboard input using stdin and a display using Sdl2.</p>
+
+<p>The second goal of the project was to utilize Rust&rsquo;s error handling system to ensure the code is robust. Thankfully, Rust makes this rather easy to do.</p>
+
+<h1 id="examples">Examples:</h1>
+
+<h3 id="brix-being-played">Brix being played:</h3>
+
+<p><img src="/images/chip8/brix.png" alt="brix" /></p>
+
+<h3 id="space-invaders-intro">Space Invaders Intro:</h3>
+
+<p><img src="/images/chip8/space_invaders_intro.png" alt="space_invaders_intro" /></p>
+
+<h3 id="space-invaders-game">Space Invaders game:</h3>
+
+<p><img src="/images/chip8/space_invaders_play1.png" alt="space_invaders_play" /></p>
+
+<h3 id="tic-tac">Tic Tac:</h3>
+
+<p><img src="/images/chip8/tic_tac.png" alt="tic_tac" /></p>
+
+</body>
+
+</body>
+</html>
+

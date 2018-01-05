@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Watch on Byron Wasti</title>
+    <link>http://byronwasti.com/tags/watch/</link>
+    <description>Recent content in Watch on Byron Wasti</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Nov 2017 09:59:59 -0500</lastBuildDate>
+    
+	<atom:link href="http://byronwasti.com/tags/watch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Open Watch #0: Design</title>
+      <link>http://byronwasti.com/post/open_watch_0/</link>
+      <pubDate>Thu, 23 Nov 2017 09:59:59 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/post/open_watch_0/</guid>
+      <description> Open Watch #0: Design </description>
+    </item>
+    
+  </channel>
+</rss>

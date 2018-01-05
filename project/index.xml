@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Byron Wasti</title>
+    <link>http://byronwasti.com/project/</link>
+    <description>Recent content in Projects on Byron Wasti</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Nov 2017 09:21:28 -0500</lastBuildDate>
+    
+	<atom:link href="http://byronwasti.com/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Open Watch</title>
+      <link>http://byronwasti.com/project/open_watch/</link>
+      <pubDate>Thu, 23 Nov 2017 09:21:28 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/open_watch/</guid>
+      <description>Currently an on-going project
+Code &amp;amp; PCB Layout: https://github.com/byronwasti/OpenWatch</description>
+    </item>
+    
+    <item>
+      <title>Chip-8 Emulator</title>
+      <link>http://byronwasti.com/project/chip8_emulator/</link>
+      <pubDate>Mon, 23 Oct 2017 09:21:51 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/chip8_emulator/</guid>
+      <description>tldr; Code is here: https://github.com/byronwasti/chip-8-emulator
+The Chip-8 is a fairly small instruction set originally designed for playing video games on old microcontrollers. Because of the small instruction set size it is a very approachable computer to write an emulator for. Since I was learning Rust at the time, it seemed like the perfect opportunity to further learn Rust and to learn how to write an emulator.
+One of the major goals of this project was to write the core independent of the peripherals.</description>
+    </item>
+    
+    <item>
+      <title>Adaptive Biasing Differential Amplifier</title>
+      <link>http://byronwasti.com/project/adaptive_biasing_diff_amp/</link>
+      <pubDate>Fri, 05 May 2017 22:16:49 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/adaptive_biasing_diff_amp/</guid>
+      <description>This was my final project for a circuits class. It is the design for an adaptive-biasing differential amplifier. This means that the slew-rate will increase if the differential inputs are far apart from each other, which overall increases the speed of the differential amplifier.
+The following graph shows the comparison of the slew-rates between the adaptive-biasing differential amplifier, and a differential-amplifier that does not have the adaptive-biasing circuitry (which was from Lab 9).</description>
+    </item>
+    
+    <item>
+      <title>MIMO Communications</title>
+      <link>http://byronwasti.com/project/mimo_communications/</link>
+      <pubDate>Fri, 05 May 2017 22:16:24 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/mimo_communications/</guid>
+      <description>Code: https://github.com/williamalu/mimo_usrp</description>
+    </item>
+    
+    <item>
+      <title>Quantum Computer Simulator</title>
+      <link>http://byronwasti.com/project/quantum_simulator/</link>
+      <pubDate>Fri, 05 May 2017 22:16:15 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/quantum_simulator/</guid>
+      <description>https://github.com/byronwasti/Quantum-Computer-Simulation</description>
+    </item>
+    
+    <item>
+      <title>Formula Electric Embedded Tutorials</title>
+      <link>http://byronwasti.com/project/formula_electric_embedded_tutorials/</link>
+      <pubDate>Mon, 20 Jun 2016 22:15:05 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/formula_electric_embedded_tutorials/</guid>
+      <description>Tutorials I wrote in order to help teach new members of the REVO Electric Vehicle Racing team how to work with ATmegas, and how to program them in C. Originally meant to be a very short introduction, the tutorials were very popular and I have continued to add more of them as I learn new things myself.
+Github</description>
+    </item>
+    
+    <item>
+      <title>Formula Electric Racecar</title>
+      <link>http://byronwasti.com/project/formula_electric_racecar/</link>
+      <pubDate>Wed, 04 May 2016 22:21:17 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/formula_electric_racecar/</guid>
+      <description>REVO is the Olin College of Engineering&amp;rsquo;s Electric Car Racing team. I am working on, and leading, the CAN programming subsection of the team. Our goal is to have all componenets of our fSAE car able to talk to each other.&amp;ldquo;, &amp;ldquo;link_title&amp;rdquo;: [&amp;ldquo;Github&amp;rdquo;], &amp;ldquo;link&amp;rdquo;: [&amp;ldquo;https://github.com/OlinREVO/CAN_2015-2016&amp;quot;],</description>
+    </item>
+    
+    <item>
+      <title>Sneaky Creeper</title>
+      <link>http://byronwasti.com/project/sneaky_creeper/</link>
+      <pubDate>Tue, 03 Nov 2015 22:15:41 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/sneaky_creeper/</guid>
+      <description>A data-exfiltration pen-testing program developed in Python that targets social-media. The program and exfiltrate data on a host machine and avoid detection by posting to sites such as Twitter, Soundcloud and Google Docs. It can then collect the data from these sites onto another machine. We were invited to present this project at BSides Las Vegas.&amp;ldquo;,
+Github
+Youtube</description>
+    </item>
+    
+    <item>
+      <title>Funnl</title>
+      <link>http://byronwasti.com/project/funnl/</link>
+      <pubDate>Sun, 20 Sep 2015 22:15:54 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/funnl/</guid>
+      <description>A news aggregator website with a twist. Given an input topic, it will scrape different articles and find the most relevant and interesting information and display it. The goal is to reduce the amount of repetitive information found in different articles about the same topic, and to bring out the interesting facts or opinions that different sources bring to the table. Developed over 24 hours at Hack MIT.&amp;ldquo;, &amp;ldquo;link_title&amp;rdquo;: [&amp;ldquo;Github&amp;rdquo;], &amp;ldquo;link&amp;rdquo;: [&amp;ldquo;https://github.</description>
+    </item>
+    
+    <item>
+      <title>Kyzr</title>
+      <link>http://byronwasti.com/project/kyzr/</link>
+      <pubDate>Wed, 06 May 2015 22:15:47 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/kyzr/</guid>
+      <description>A full-stack Web-application which interfaced with an Android App that allowed users to trade virtual torches on their phones and lookup where their torch has been on the website. The goal of the project was to use as many buzzwords as possible. The server consisted of Python Flask, Apache, Debian, MongoDB. Built with three others for a class final project.&amp;ldquo;, &amp;ldquo;link_title&amp;rdquo;: [&amp;ldquo;Github (Server)&amp;rdquo;, &amp;ldquo;Github (Android)&amp;rdquo;], &amp;ldquo;link&amp;rdquo;: [&amp;ldquo;https://github.com/byronwasti/Kyzr-Server&amp;quot;, &amp;ldquo;https://github.com/phuston/Kyzr&amp;quot;],</description>
+    </item>
+    
+    <item>
+      <title>Uber Instant</title>
+      <link>http://byronwasti.com/project/uber_instant/</link>
+      <pubDate>Mon, 20 Apr 2015 22:16:08 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/uber_instant/</guid>
+      <description>Sometimes it is just too difficult to pull out your phone and call an Uber. We built a little box with a screen on it that allows you to simply press a button and say where you want to go and it will order an Uber for you. Built over 24 hours at a Hack Holyoke Hackathon and got 2nd place.
+Github</description>
+    </item>
+    
+    <item>
+      <title>Self Tuning Guitar</title>
+      <link>http://byronwasti.com/project/self_tuning_guitar/</link>
+      <pubDate>Mon, 20 Apr 2015 22:16:02 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/self_tuning_guitar/</guid>
+      <description>An attachement for a guitar that allows six servos to automatically tune a guitar as you strum it. It uses only an Arduino to control all the servos and to do all the frequency calculations. Built with four others for a final class project.
+Github
+Youtube</description>
+    </item>
+    
+    <item>
+      <title>Tracky Bird</title>
+      <link>http://byronwasti.com/project/tracky_bird/</link>
+      <pubDate>Thu, 12 Mar 2015 20:58:32 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/tracky_bird/</guid>
+      <description>A clone of the popular Flappy Bird game that requires players to actually flap their arms. This project was built in Python with two others for a class project. I mostly focused on the OpenCV flap-detection.
+github: https://github.com/byronwasti/TrackyBird</description>
+    </item>
+    
+    <item>
+      <title>Lab Testing Rig</title>
+      <link>http://byronwasti.com/project/lab_testing_rig/</link>
+      <pubDate>Thu, 05 Mar 2015 22:14:34 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/lab_testing_rig/</guid>
+      <description>A laboratory style testing rig which features intuitive touchscreen input and display. All run off an Arduino.&amp;ldquo;, &amp;ldquo;link_title&amp;rdquo;: [&amp;ldquo;PDF&amp;rdquo;], &amp;ldquo;link&amp;rdquo;: [&amp;ldquo;../pdfs/POE_lab_3.pdf&amp;rdquo;],
+https://github.com/byronwasti/POE_Lab_3</description>
+    </item>
+    
+    <item>
+      <title>Silly Secret Santa Game</title>
+      <link>http://byronwasti.com/project/silly_secret_santa_game/</link>
+      <pubDate>Wed, 04 Mar 2015 22:14:22 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/silly_secret_santa_game/</guid>
+      <description>A fun and rediculous game I made for a friend for Secret Santa. Programmed in Python and made heavy use of Pygame.&amp;ldquo;,
+Github</description>
+    </item>
+    
+    <item>
+      <title>Scanner 3d</title>
+      <link>http://byronwasti.com/project/scanner_3d/</link>
+      <pubDate>Tue, 17 Feb 2015 22:14:12 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/scanner_3d/</guid>
+      <description>A partner and I designed, built and programmed a 3D scanner with 2 hobby servos and an IR distance sensor. It used an Arduino to take measurements and to control the servos, and interfaced via serial to a computer that rendered the measurements in real-time with Python.
+ &amp;quot;link_title&amp;quot;: [&amp;quot;PDF&amp;quot;], &amp;quot;link&amp;quot;: [&amp;quot;../pdfs/POE_lab_2.pdf&amp;quot;],  https://github.com/byronwasti/POE_Lab_2</description>
+    </item>
+    
+    <item>
+      <title>iCal Olin Calendar</title>
+      <link>http://byronwasti.com/project/ical_olin_calendar/</link>
+      <pubDate>Tue, 06 Jan 2015 22:18:50 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/ical_olin_calendar/</guid>
+      <description>A simple web-app my friends and I made using Python and Flask to take the terribly formatted and inconvenient Olin calendar and generate an iCalendar which can be imported into any calendar application.&amp;ldquo;,
+https://github.com/byronwasti/iCalOlin</description>
+    </item>
+    
+    <item>
+      <title>Hashtag Gloves</title>
+      <link>http://byronwasti.com/project/hashtag_gloves/</link>
+      <pubDate>Thu, 20 Nov 2014 22:11:58 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/hashtag_gloves/</guid>
+      <description>Gloves that let you tweet by simply tapping your fingers together in a \&amp;ldquo;hashtag\&amp;rdquo; shape and then speaking. Developed over the course of 24 hours at Hack Holyoke, these silly gloves managed to gain some traction in the media and have been featured on Gizmodo, Buzzfeed and a whole variety of other websites.
+Github
+Buzzfeed
+Gizmodo</description>
+    </item>
+    
+    <item>
+      <title>Spectrastock Nano</title>
+      <link>http://byronwasti.com/project/spectrastock_nano/</link>
+      <pubDate>Fri, 20 Dec 2013 22:18:44 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/project/spectrastock_nano/</guid>
+      <description>Open-Source 3D printer that I designed based on a RepRap printer with a (then) new design, the Rostock.
+https://github.com/byronwasti/Spectrastock-Nano</description>
+    </item>
+    
+  </channel>
+</rss>
