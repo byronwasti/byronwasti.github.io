@@ -12,7 +12,16 @@
     
     
     <item>
-      <title>Prusto Watch #0: Design</title>
+      <title>Prusto Watch #1: First Steps into Arm and the Embedded-Rust Ecosystem</title>
+      <link>http://byronwasti.com/post/prusto_watch_1/</link>
+      <pubDate>Mon, 12 Feb 2018 21:34:57 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/post/prusto_watch_1/</guid>
+      <description>In this post I will describe my initial dive into Arm development using Rust. There are potentially many mistakes in my understanding, so this post should not be used as a reference for how to do embedded development in Rust. However, I think it is useful to describe the learning process being new to Rust and Arm development so that those more experienced can see the pain-points of getting started.</description>
+    </item>
+    
+    <item>
+      <title>Prusto Watch #0: Design &amp; Goals of the Project</title>
       <link>http://byronwasti.com/post/prusto_watch_0/</link>
       <pubDate>Thu, 23 Nov 2017 09:59:59 -0500</pubDate>
       
