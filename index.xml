@@ -17,7 +17,8 @@
       <pubDate>Mon, 12 Feb 2018 21:34:57 -0500</pubDate>
       
       <guid>http://byronwasti.com/post/prusto_watch_1/</guid>
-      <description>In this post I will describe my initial dive into Arm development using Rust. There are potentially many mistakes in my understanding, so this post should not be used as a reference for how to do embedded development in Rust. However, I think it is useful to describe the learning process being new to Rust and Arm development so that those more experienced can see the pain-points of getting started.</description>
+      <description>In this post I will describe my initial dive into Arm development using Rust. There are potentially many mistakes in my understanding, so this post should not be used as a reference for how to do embedded development in Rust. However, I think it is useful to describe the learning process so that those more experienced can see the pain-points of beginners.
+Firmware Tools The build system I am using follows japaric&amp;rsquo;s system, which he writes about here.</description>
     </item>
     
     <item>
