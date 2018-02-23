@@ -8,25 +8,24 @@
 
 <body>
     <div class="nav">
-        <ul>
-            <li><a href="http://byronwasti.com/">Home</a></li>
-            <li><a href="http://byronwasti.com//project">Projects</a></li>
-            <li><a href="http://byronwasti.com//post">Posts</a></li>
-            <li><a href="https://github.com/byronwasti">Github</a></li>
-            <li><a href="http://byronwasti.com//Resume.pdf">Resume</a></li>
-        </ul>
+        <div class="nav-inner">
+            <a href="http://byronwasti.com/">Home</a>
+            <a href="http://byronwasti.com//project">Projects</a>
+            <a href="http://byronwasti.com//post">Posts</a>
+            <a href="https://github.com/byronwasti">Github</a>
+            <a href="http://byronwasti.com//Resume.pdf">Resume</a>
+        </div>
+    <hr/>
     </div>
 
 
-<h1>Byron Wasti</h1>
-<h2>About Me</h2>
+<h1>About Me</h1>
 
 <p>I am a systems level programmer with a passion for algorithm development, software architecture design, and emerging technologies.</p>
 
 
 <div class="container">
-<h2>Projects</h2>
-<p><a href="http://byronwasti.com//project">[View All]</a></p>
+<h1>Projects</h1>
 </div>
 
 <div class="list-container">
@@ -53,11 +52,10 @@
 
 </div>
 
-<p><a href="http://byronwasti.com//project">[View More]</a></p>
+<p><a href="http://byronwasti.com//project">[View All]</a></p>
 
 <div class="container">
-<h2>Posts</h2>
-<p><a href="http://byronwasti.com//post">[View All]</a></p>
+<h1>Posts</h1>
 </div>
 
 <div class="list-container">
@@ -74,20 +72,13 @@
 
 </div>
 
-<p><a href="http://byronwasti.com//post">[View More]</a></p>
+<p><a href="http://byronwasti.com//post">[View All]</a></p>
 
 <div class="container">
-<h2>Contact</h2>
+<h1>Contact</h1>
 </div>
 
 <div class="list-container">
-    <div class="list-item">
-        <p><a href="mailto:byron.wasti@gmail.com">byron.wasti@gmail.com</a></p>
-    </div>
-    <div class="list-item">
-        <p><a href="https://www.linkedin.com/in/byron-wasti-595b23a4">Linkedin</a></p>
-    </div>
-
     <div class="list-item">
     <form id="contact-form" method="post" action="https://formspree.io/byron.wasti@gmail.com"
       method="POST">
@@ -105,17 +96,24 @@
             <textarea id="message" class="form-control" 
                    rows="4" required="required"
                    type="text" name="message"
-                   placeholder="Your message">
-            </textarea>
+                   placeholder="Your message"></textarea>
         </div>
         <input type="hidden" name="_subject" value="[Website Contact]">
-        <input type="submit" value="Send">
+        <input class="button" type="submit" value="Send">
     </div>
 </form> 
 
-
     </div>
 </div>
+
+<footer>
+    <hr/>
+    <div class="footer-inner">
+        <p>&copy; Byron Wasti</p>
+        <p><a href="mailto:byron.wasti@gmail.com">byron.wasti@gmail.com</a></p>
+        <p><a href="https://www.linkedin.com/in/byron-wasti-595b23a4">Linkedin</a></p>
+    </div>
+</footer>
 
 </body>
 </html>

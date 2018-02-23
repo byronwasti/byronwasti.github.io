@@ -7,22 +7,22 @@
 
 <body>
     <div class="nav">
-        <ul>
-            <li><a href="http://byronwasti.com/">Home</a></li>
-            <li><a href="http://byronwasti.com//project">Projects</a></li>
-            <li><a href="http://byronwasti.com//post">Posts</a></li>
-            <li><a href="https://github.com/byronwasti">Github</a></li>
-            <li><a href="http://byronwasti.com//Resume.pdf">Resume</a></li>
-        </ul>
+        <div class="nav-inner">
+            <a href="http://byronwasti.com/">Home</a>
+            <a href="http://byronwasti.com//project">Projects</a>
+            <a href="http://byronwasti.com//post">Posts</a>
+            <a href="https://github.com/byronwasti">Github</a>
+            <a href="http://byronwasti.com//Resume.pdf">Resume</a>
+        </div>
+    <hr/>
     </div>
 
 
-<body>
-    <div class="container">
-        <h1>Prusto Watch #1: First Steps into Arm and the Embedded-Rust Ecosystem</h1>
-        <p> February 2018</p>
-    </div>
-    
+<div class="container">
+    <h1>Prusto Watch #1: First Steps into Arm and the Embedded-Rust Ecosystem</h1>
+    <p> February 2018</p>
+</div>
+
 
 <p>In this post I will describe my initial dive into Arm development using Rust. There are potentially many mistakes in my understanding, so this post should not be used as a reference for how to do embedded development in Rust. However, I think it is useful to describe the learning process being new to Rust and Arm development so that those more experienced can see the pain-points of getting started.</p>
 
@@ -54,7 +54,7 @@
 
 <p>For example, the following code sets up pin PE9 as an output pin:</p>
 
-<pre><code class="language-rust">let dp = stm32f30x::Peripherals::take().unwrap();
+<pre><code>let dp = stm32f30x::Peripherals::take().unwrap();
 dp.GPIOA.moder.modify(|_, w| w.moder9().output());
 </code></pre>
 
@@ -108,7 +108,15 @@ dp.GPIOA.moder.modify(|_, w| w.moder9().output());
 
 <p>The next steps are to send out a revised board design with a focus on debugability, and to use that new board for actually getting various peripherals functional. I hope to have drivers for the IMU, BLE module, screen, and (hopefully) USB in around three weeks. From there I can focus on writing OS-level functionality and actually making useable smart-watch!</p>
 
-</body>
+
+<footer>
+    <hr/>
+    <div class="footer-inner">
+        <p>&copy; Byron Wasti</p>
+        <p><a href="mailto:byron.wasti@gmail.com">byron.wasti@gmail.com</a></p>
+        <p><a href="https://www.linkedin.com/in/byron-wasti-595b23a4">Linkedin</a></p>
+    </div>
+</footer>
 
 </body>
 </html>
