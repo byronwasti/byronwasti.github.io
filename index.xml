@@ -18,7 +18,7 @@
       
       <guid>http://byronwasti.com/post/writing_a_ble_driver_in_rust/</guid>
       <description>The repository for the driver is located here: https://github.com/byronwasti/rn4870
-This post will document my process and thoughts on writing a driver for a bluetooth module using Rust and the embedded-hal crate. Note that this is not a driver release, as the driver is in not complete and will most likely be going through a rewrite due to things I learned while writing the driver.
+This post will document my process and thoughts on writing a driver for a bluetooth module using Rust and the embedded-hal crate. Note that this is not a driver release, as the driver is not complete and will most likely be going through a rewrite due to things I learned while writing the driver.
 The specific bluetooth device I will be using is the RN4870 BLE castellated module.</description>
     </item>
     
