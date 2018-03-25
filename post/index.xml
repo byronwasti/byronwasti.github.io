@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Byron Wasti</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Feb 2018 21:34:57 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 04 Mar 2018 17:08:02 -0500</lastBuildDate>
     
 	<atom:link href="http://byronwasti.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Writing A Driver in Rust Using Embedded-Hal Traits for the RN4870 BLE Module</title>
+      <link>http://byronwasti.com/post/writing_a_ble_driver_in_rust/</link>
+      <pubDate>Sun, 04 Mar 2018 17:08:02 -0500</pubDate>
+      
+      <guid>http://byronwasti.com/post/writing_a_ble_driver_in_rust/</guid>
+      <description>The repository for the driver is located here: https://github.com/byronwasti/rn4870
+This post will document my process and thoughts on writing a driver for a bluetooth module using Rust and the embedded-hal crate. Note that this is not a driver release, as the driver is in not complete and will most likely be going through a rewrite due to things I learned while writing the driver.
+The specific bluetooth device I will be using is the RN4870 BLE castellated module.</description>
+    </item>
     
     <item>
       <title>Prusto Watch #1: First Steps into Arm and the Embedded-Rust Ecosystem</title>
