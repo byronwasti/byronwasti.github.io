@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Byron Wasti</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Mar 2018 17:08:02 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 27 Mar 2018 13:24:40 -0400</lastBuildDate>
     
 	<atom:link href="http://byronwasti.com/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Prusto Watch #2: Basic Driver Support</title>
+      <link>http://byronwasti.com/post/prusto_watch_2/</link>
+      <pubDate>Tue, 27 Mar 2018 13:24:40 -0400</pubDate>
+      
+      <guid>http://byronwasti.com/post/prusto_watch_2/</guid>
+      <description>The goal of the past few weeks has been to develop basic driver support for the various peripherals on the Prusto Watch. This includes the BLE module, the LCD display, the IMU and touch-sensing. So far I have made major progress in developing drivers for the BLE module and for the LCD display. I am having difficulty verifying the IMU is soldered correctly, so I have been unable to make progress in actually communicating with it.</description>
+    </item>
     
     <item>
       <title>Writing A Driver in Rust Using Embedded-Hal Traits for the RN4870 BLE Module</title>
