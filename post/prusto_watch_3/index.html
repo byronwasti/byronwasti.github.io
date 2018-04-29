@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prusto Watch #3: Learning How to Properly Debug Arm</title>
+    <link rel="shortcut icon" href="/favicon.ico?v=1">
+    <link rel="stylesheet" href="http://byronwasti.com//css/main.css">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="nav-inner">
+            <a href="http://byronwasti.com/">Home</a>
+            <a href="http://byronwasti.com//project">Projects</a>
+            <a href="http://byronwasti.com//post">Posts</a>
+            <a href="https://github.com/byronwasti">Github</a>
+            <a href="http://byronwasti.com//Resume.pdf">Resume</a>
+        </div>
+    <hr/>
+    </div>
+
+
+<div class="container">
+    <h1>Prusto Watch #3: Learning How to Properly Debug Arm</h1>
+    <p> April 2018</p>
+</div>
+
+
+<p>This post will document my experience debugging a strange error I ran into while developing firmware for the Prusto Watch. Through the process I learned how the startup process for Arm actually works and how to use debugging tools in a much more effective way. Those that are familiar with Arm assembly and debugging will probably not learn anything from this, but I think it could be useful for those that are new to Arm.</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>After soldering the third version of the Prusto Watch hardware, I flashed <code>blinky</code> onto it to ensure that everything was functioning properly. The program loaded just fine, and the LED blinked.  Next I tried to flash the firmware for showing graphics on the memory LCD. Once again it loaded just fine on the MCU, but nothing displayed when running the program through GDB. Ctrl-C&rsquo;ing made GDB output the following:</p>
+
+<pre><code>^C
+Program received signal SIGINT, Interrupt.
+0x1fffeec2 in ?? ()
+(gdb) 
+</code></pre>
+
+<p>Obviously something went wrong, which is weird since the firmware ran just fine on previous iterations. At the time, I had no idea what this error meant, so I attempted to flash the <code>release</code> version (which has compile-time optimizations) of the same firmware.  In retrospect, this doesn&rsquo;t make any sense to do (but I&rsquo;m glad I did it). What I found is that the <code>release</code> version of the firmware ran just fine, and shapes displayed on the screen.</p>
+
+<p>This seemed like a bug in the compiler. Since embedded Rust is using a nightly version of the compiler, something could have broken in a recent change. But after searching through issue logs, and talking on IRC, this seemed like an issue only I was having. IRC members also found it <em>really</em> weird that it worked when in <code>release</code> mode and not in <code>debug</code> mode. So began my journey debugging Arm and learning how things work.</p>
+
+<h2 id="getting-to-a-minimum-complete-verifiable-example">Getting to A Minimum, Complete, Verifiable Example</h2>
+
+<p>The graphics code for the memory LCD is rather large if you include dependencies, so there are many, many places for things to go wrong. In order to get to the root of the problem, I slowly took code out of the library until I was left with just what was broken. I found the issue was with the initialization of the main display object,</p>
+
+<pre><code class="language-rust">impl&lt;SPI, CS, DISP, E&gt; Ls010b7dh01&lt;SPI, CS, DISP&gt;
+where
+    SPI: Write&lt;u8, Error = E&gt;,
+    CS: OutputPin,
+    DISP: OutputPin,
+{
+    /// Create a new Ls010b7dh01 object
+    ///
+    /// `disp` is the pin connected to the display_enable pin of
+    /// the memory LCD.
+    pub fn new(spi: SPI, mut cs: CS, mut disp: DISP) -&gt; Self {
+        disp.set_low();
+        cs.set_low();
+
+        let buffer = [[0; 16]; 128];
+
+        Self {
+            spi,
+            cs,
+            disp,
+            buffer,
+        }
+    }
+}
+</code></pre>
+
+<p>The code would hang (as in run indefinitely) when the control sequence reached this function, and it <em>seemed</em> to occur right at the <code>disp.set_low();</code> line. When I took out that line the program still didn&rsquo;t work. However, taking out the <code>let buffer = [[0; 16]; 128];</code> line made the program run. So it seemed like the issue is with initializing a &ldquo;lot&rdquo; of memory on the stack. The minimum, complete, verifiable example I had was then:</p>
+
+<pre><code class="language-rust">fn main() {
+    // Insert a breakpoint
+    asm::bkpt();
+
+    // The error line, initializing memory on the stack
+    let buffer = [[0; 16]; 128];
+
+    // Another breakpoint which we never hit in `debug` mode
+    asm::bkpt();
+
+    loop {
+        // Wait on interrupt, apparently needed due to a bug in LLVM
+        asm::wfi();
+    }
+}
+</code></pre>
+
+<h2 id="understanding-the-error">Understanding the Error</h2>
+
+<p>In order to debug the issue I was having, I had to first understand the error GDB was outputting (with help from people on IRC). Loading the <code>debug</code> version of the firmware again, I got GDB to the same spot. This time, I tried to find the backtrace.</p>
+
+<pre><code>^C
+Program received signal SIGINT, Interrupt.
+0x1fffeec2 in ?? ()
+(gdb) bt
+#0  0x1fffeec2 in ?? ()
+#1  0x1fffee9e in ?? ()
+Backtrace stopped: previous frame identical to this frame (corrupt stack?)
+(gdb)
+</code></pre>
+
+<p>What this means is that something went wrong with the stack memory, and generally it is due to stack overflow where the stack runs out of memory. However, I am using a microcontroller with <em>more</em> SRAM (40KB) than my previous microcontroller (12KB), so it didn&rsquo;t make sense that I was running out of memory since it worked fine on the previous microcontroller.</p>
+
+<p>However, the fact that the issue was with the stack makes sense given the code that was breaking, so I knew I was on the right track.</p>
+
+<h2 id="arm-vector-tables">Arm Vector Tables</h2>
+
+<p>Since I knew I had <em>enough</em> SRAM, the issue was definitely not a stack overflow. I learned on IRC that it was most likely a linking error, and that my vector table might be wrong. Coming from the world of AVR, I had no idea what a vector table even was.</p>
+
+<p>The Arm vector table is actually quite straightforward. It is a list of places in memory for use by the Arm Core. Most of it is just a list of function-pointers for dealing with interrupts. For instance, if there is a serial receive interrupt, then the Arm Core will set the program counter to the value in the vector table corresponding to the serial receive interrupt. AVR does have interrupt vectors, which I have used, but the vector table is handled under-the-hood, and thus I never had to explicitly create it. In Arm, however, it has to be explicitly created, probably to keep things flexible.</p>
+
+<p>The reason this has relevance to my problem is that the first value of the Arm vector table is where the stack memory is located. Members on IRC figured that this value was incorrect, and thus why the stack was corrupt.</p>
+
+<h2 id="arm-tools">Arm Tools</h2>
+
+<p>Thankfully there are some really awesome tools for inspecting these types of issues. One of which is the <code>objdump</code> tool. Using it, I was able to quickly verify that my stack was in fact in the right place:</p>
+
+<pre><code class="language-bash">$ arm-none-eabi-objdump -D target/thumbv7em-none-eabihf/debug/cortex-m-quickstart | head -n10
+
+target/thumbv7em-none-eabihf/debug/cortex-m-quickstart:     file format elf32-littlearm
+
+
+Disassembly of section .vector_table:
+
+08000000 &lt;_svector_table&gt;:
+ 8000000:       2000a000        andcs   sl, r0, r0
+</code></pre>
+
+<p>The flash memory of the STM32f303 MCU I am using starts at <code>0x0800_0000</code>. The first value, which corresponds to the stack memory location, is <code>0x2000_a000</code>. The SRAM of the MCU is located at <code>0x2000_0000</code> and <code>0xa000</code> is 40KB. Since the stack is top-down, this means that the vector table is correct, and the stack memory is located at the right place.</p>
+
+<h2 id="digging-through-assembly">Digging Through Assembly</h2>
+
+<p>Given that my vector table was correct, I stumped the folks on IRC. The last bit of advice I got was &ldquo;step through the assembly and try to find something going wrong.&rdquo;</p>
+
+<p>Once again I started up GDB, but instead of letting the program run I was going to step through every line of assembly and figure out where things go wrong. From reading the GDB documentation, the commands I would need are:</p>
+
+<ul>
+<li><code>stepi</code> for stepping through the code one assembly instruction at a time</li>
+<li><code>display/i $sp</code> and <code>display/i $pc</code> for displaying the stack pointer and program counter at each step.</li>
+<li><code>disas</code> for disassembling and printing the assembly.</li>
+</ul>
+
+<p>I started up GDB, and just to get my bearings I ran <code>disas</code>.</p>
+
+<pre><code class="language-bash">(gdb) disas
+Dump of assembler code for function cortex_m_rt::reset_handler:
+   0x08000400 &lt;+0&gt;:     push    {r7, lr}
+   0x08000402 &lt;+2&gt;:     mov     r7, sp
+   0x08000404 &lt;+4&gt;:     sub     sp, #16
+=&gt; 0x08000406 &lt;+6&gt;:     movw    r0, #0
+   0x0800040a &lt;+10&gt;:    movt    r0, #8192       ; 0x2000
+   0x0800040e &lt;+14&gt;:    movw    r1, #0
+   0x08000412 &lt;+18&gt;:    movt    r1, #8192       ; 0x2000
+(gdb)
+</code></pre>
+
+<p>The <code>.text</code> section (where the actual program is) is located at 0x0800_0400, since the vector table is 0x400 bytes long. So this shows that the program counter is on the fourth instruction, after completing three instructions. The first three instructions are:</p>
+
+<ul>
+<li>push R7 and the link register (LR) onto the stack</li>
+<li>Move the stack pointer (SP) into R7</li>
+<li>Subtract the number 16 from SP</li>
+</ul>
+
+<p>Since our vector table defines the stack pointer to start at 0x2000_a000, at this point we would expect the stack pointer to be at 0x2000_9ff0 (which is 0x2000_a000 - 16). However, upon inspecting this register using GDB, I found it to be very different.</p>
+
+<pre><code class="language-bash">(gdb) display $sp
+1: $sp = (void *) 0x20001240
+(gdb)
+</code></pre>
+
+<p>The difference between where I expect the stack pointer to be, and where it actually is, is a difference of about 36KB. This means something is very amiss, and it happens immediately.</p>
+
+<h2 id="an-issue-from-the-past">An Issue From The Past</h2>
+
+<p>When I first soldered the new revision of the PCB, I was able to flash <code>blinky</code> on it just fine. However, the program did not run when the board was unplugged from my computer. This was an issue, since a smart watch is not very usable if you have to have it plugged into GDB in order to run firmware.</p>
+
+<p>After trying to figure out the issue, someone suggested checking my <code>boot0</code> pin, and ensuring that it was tied low. It turns out that in the latest revision, I had accidentally tied my <code>boot0</code> pin high.</p>
+
+<p>The <code>boot0</code> pin defines the <em>aliasing</em> of the 0x0000_0000 memory region. This is the region of memory that is used when the microcontroller starts. If <code>boot0</code> is low, the memory region is aliased to the flash memory, or 0x0800_0000, which is where my code is.  However, if the <code>boot0</code> pin is high, it is aliased to the system memory, or 0x1FFF_D800, where the STM bootloader is located.</p>
+
+<p>What I learned is that when GDB is running, it coerces the program counter into the right position, which for me is 0x0800_0000. But when GDB was not being used, and the board was running unconnected, the microcontroller was running the code in the system memory.</p>
+
+<p>This seemed like a small issue. It just meant this revision would not be able to run without being connected to GDB, which is annoying (since I can&rsquo;t wear it) but also not a deal breaker since I just need to do development with it. Little did I know that this issue is also what is making the stack pointer all crazy.</p>
+
+<h2 id="the-root-cause">The Root Cause</h2>
+
+<p>After spending a long time trying to figure out why the stack pointer was so wrong, I remembered the issue I had with the <code>boot0</code> pin. What if the vector-table is set before GDB is able to coerce the program counter?</p>
+
+<p>I examined the system memory region, 0x1FFF_D800, to see what the vector table in system memory sets the stack pointer to.</p>
+
+<pre><code class="language-bash">(gdb) x 0x1fffd800  # inspect the memory at the address
+0x1fffd800:     0x20001258
+</code></pre>
+
+<p>The system memory vector table has the stack sized much smaller than it could be. In fact, this value is <em>almost</em> the value that GDB shows the stack pointer to be on initial start up. GDB showed the stack pointer to be 0x20001250 (before it had 16 subtracted from it), while the system memory vector table sets it to 0x20001258. This is a difference of 8 bytes, which can be explained to be missing since the stack pointer has to be aligned in memory, so those 8 bytes are truncated. Aha! This seems really promising.</p>
+
+<p>My theory, then, is that the vector table is sourced from <em>system memory</em>, and then GDB coerces the program counter to <em>flash memory</em> to run the program. Since the system memory stack size is so small, we actually <em>do</em> have a stack overflow error.</p>
+
+<p>This also explains why the program is able to run in <code>release</code> mode. Due to compile-time optimizations, the stack usage is much lower and does not cause it to overflow. Running the firmware on older revisions with the correct <code>boot0</code> pin helps reinforce my theory, since the stack pointer is consistently in the right place. It seems like this is the issue, and one that will be fixed in the next board revision!</p>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+
+<p>From the process of debugging this issue, I learned a <em>lot</em> about Arm. As frustrating and as long as it took, I have a significantly better grasp about what is going on under-the-hood. I also know how to use my tools much more effectively even though I&rsquo;m positive that there are still many tricks that are waiting to be learned.</p>
+
+<p>Although I have made no progress on actually writing firmware for the watch, I think it has been completely worth it from a learning perspective. A few times I thought about just working with an older revision, and hoping that the next revision of the board would work fine because <em>who knows</em> what could be going wrong. But deep down I wanted to <em>know</em> why it wasn&rsquo;t working. And now, I&rsquo;m pretty sure I do.</p>
+
+
+<footer>
+    <hr/>
+    <div class="footer-inner">
+        <p>&copy; Byron Wasti</p>
+        <p><a href="mailto:byron.wasti@gmail.com">byron.wasti@gmail.com</a></p>
+        <p><a href="https://www.linkedin.com/in/byron-wasti-595b23a4">Linkedin</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
+

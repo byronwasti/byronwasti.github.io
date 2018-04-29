@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Prusto Watch #3: Learning How to Properly Debug Arm</title>
+      <link>http://byronwasti.com/post/prusto_watch_3/</link>
+      <pubDate>Sun, 29 Apr 2018 13:36:43 -0400</pubDate>
+      
+      <guid>http://byronwasti.com/post/prusto_watch_3/</guid>
+      <description>This post will document my experience debugging a strange error I ran into while developing firmware for the Prusto Watch. Through the process I learned how the startup process for Arm actually works and how to use debugging tools in a much more effective way. Those that are familiar with Arm assembly and debugging will probably not learn anything from this, but I think it could be useful for those that are new to Arm.</description>
+    </item>
+    
+    <item>
       <title>Prusto Watch #2: Basic Driver Support</title>
       <link>http://byronwasti.com/post/prusto_watch_2/</link>
       <pubDate>Tue, 27 Mar 2018 13:24:40 -0400</pubDate>
